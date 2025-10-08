@@ -658,7 +658,12 @@ iframe {
   width: 100%;
   overflow: hidden;
 }
-
+@media (max-width: 768px) {
+  .hero {
+    height: 400px; /* mobilde daha küçük */
+  }
+  
+  
 
 </style>
 </head>
@@ -683,17 +688,17 @@ iframe {
 
 <!-- MENÜ -->
 <nav>
-    <a href="#" onclick="showSection('home')">Ana Sayfa</a>
-    <a href="#" onclick="showSection('about')">Hakkımızda</a>
-    <a href="#" onclick="showSection('courses')">Kurslar</a>
-    <a href="#" onclick="showSection('rehberlik')">Rehberlik</a>
-    <a href="#" onclick="showSection('kadromuz')">Kadromuz</a>
-    <a href="#" onclick="showSection('kazandirdiklarimiz')">Kazandırdıklarımız</a>
-    <a href="#" onclick="showSection('galeri')">Galeri</a>
-    <a href="#" onclick="showSection('etkinlikler')">Etkinliklerimiz</a>
-    <a href="#" onclick="showSection('deneme')">Denemelerimiz</a>
-    <a href="#" onclick="showSection('dersprogrami')">Ders Programları</a>
-    <a href="#" onclick="showSection('contact')">İletişim</a>
+    <a href="javascript:void(0)" onclick="showSection('home')">Ana Sayfa</a>
+    <a href="javascript:void(0)" onclick="showSection('about')">Hakkımızda</a>
+    <a href="javascript:void(0)" onclick="showSection('courses')">Kurslar</a>
+    <a href="javascript:void(0)" onclick="showSection('rehberlik')">Rehberlik</a>
+    <a href="javascript:void(0)" onclick="showSection('kadromuz')">Kadromuz</a>
+    <a href="javascript:void(0)" onclick="showSection('kazandirdiklarimiz')">Kazandırdıklarımız</a>
+    <a href="javascript:void(0)" onclick="showSection('galeri')">Galeri</a>
+    <a href="javascript:void(0)" onclick="showSection('etkinlikler')">Etkinliklerimiz</a>
+    <a href="javascript:void(0)" onclick="showSection('deneme')">Denemelerimiz</a>
+    <a href="javascript:void(0)" onclick="showSection('dersprogrami')">Ders Programları</a>
+    <a href="javascript:void(0)" onclick="showSection('contact')">İletişim</a>
 </nav>
 
 <!-- ANA SAYFA -->
@@ -706,6 +711,10 @@ iframe {
         allowfullscreen
         style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; z-index: -1;">
     </iframe>
+	<button onclick="playVideo()" style="position:absolute; top:10px; left:10px; z-index:10; padding:10px 20px; font-size:16px; cursor:pointer;">
+    ► Sesli Başlat
+</button>
+
 </div>
 
 </section>
@@ -722,7 +731,7 @@ iframe {
   <img src="https://r.resimlink.com/8LHbfv.jpg" alt="Fotoğraf 2">
 </div>
 
-	<
+	
 </section>
 
 <!-- KURSLAR -->
@@ -877,12 +886,7 @@ iframe {
   <div class="kroki">
     <img src="https://r.resimlink.com/qarE8p7.jpg" alt="Okul krokisi">
   </div>
-    <form>
-        <input type="text" name="name" placeholder="Adınız Soyadınız" required><br><br>
-        <input type="email" name="email" placeholder="E-posta" required><br><br>
-        <textarea name="message" rows="4" placeholder="Mesajınız" required></textarea><br><br>
-        <button type="submit">Gönder</button>
-    </form>
+    
 </section>
 
 <footer>
@@ -897,6 +901,15 @@ function showSection(id) {
     sections.forEach(sec => {
         sec.classList.remove("active"); 
         sec.style.display = "none";     
+
+        // Eğer home section değilse videoyu sessize al
+        if(sec.id === "home") {
+            const iframe = sec.querySelector("iframe");
+            if(iframe) {
+                // Videoyu sessize al ve autoplay kapat
+                iframe.src = "https://www.youtube.com/embed/wL_5Agy-eHc?autoplay=0&mute=1&loop=1&playlist=wL_5Agy-eHc&controls=0&modestbranding=1&rel=0";
+            }
+        }
     });
 
     let selected = document.getElementById(id);
@@ -907,7 +920,9 @@ function showSection(id) {
     }, 50);
 }
 
+
 // === GALERİ POPUP ===
+// Galeri popup açma
 function openPopup(imgElement) {
   const popup = document.getElementById("popup");
   const popupImg = document.getElementById("popup-img");
@@ -915,24 +930,25 @@ function openPopup(imgElement) {
   popup.style.display = "flex"; 
 }
 
+// Galeri popup kapatma
 function closePopup() {
   document.getElementById("popup").style.display = "none";
-}
-function openPopup(imgElement) {
-  const popup = document.getElementById("popup");
-  const popupImg = document.getElementById("popup-img");
-  popupImg.src = imgElement.src; 
-  popup.style.display = "flex"; 
 }
 
-function closePopup() {
-  document.getElementById("popup").style.display = "none";
+function playVideo() {
+    const homeSection = document.getElementById("home"); // Home section
+    const iframe = homeSection.querySelector("iframe"); // Home içindeki iframe
+
+    // Sadece home aktif ve iframe varsa çalış
+    if(homeSection.classList.contains("active") && iframe) {
+        iframe.src = "https://www.youtube.com/embed/wL_5Agy-eHc?autoplay=1&rel=0&controls=1";
+    }
 }
-@media (max-width: 768px) {
-  .hero {
-    height: 400px; /* mobilde daha küçük */
-  }
-}
+
+</script>
+
+
+
 
 
 </script>
@@ -941,3 +957,4 @@ function closePopup() {
 
 </body>
 </html>
+
