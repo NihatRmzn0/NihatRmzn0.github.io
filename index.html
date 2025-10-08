@@ -1,969 +1,971 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-<title>PIRAMIT AKADEMI</title>
-<style>
-    body {
-     font-family: 'Gladiora', sans-serif;
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
+	<!DOCTYPE html>
+	<html lang="tr">
+	<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+	<title>PIRAMIT AKADEMI</title>
+	<style>
+		body {
+		 font-family: 'Gladiora', sans-serif;
+		margin: 0;
+		padding: 0;
+		line-height: 1.6;
 
-    /* Arka plan görseli */
-    background-image: url('https://r.resimlink.com/yPt3I9.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed; /* sayfa kayınca arka plan sabit kalır */
-    background-color: #ffffff; /* yedek olarak beyaz arka plan */
-}
-section {
-    background-color: rgba(34, 34, 34, 0.7); /* beyaz, %85 opaklık */
-    padding: 2rem;
-    max-width: 1000px;
-    margin: auto;
-    border-radius: 8px;
-}
-
-section h2 {
-  color: #ffffff; /* başlıklar turuncu */
-}
-
-section p {
-  color: #fffbea; /* paragraflar krem beyaz */
-}
-
-
-
-   header {
-  background: url('https://img.freepik.com/premium-vektor/turuncu-ve-acik-kahverengi-renk-tonlamali-modern-arka-plan-sablonu-sicrama-efekti_586360-452.jpg');
-  color: white;
-  padding: 1.5rem 2rem;
-}
-
-.header-container {
-  display: flex;
-  align-items: center;
-  justify-content: center; /* space-between yerine ortala */
-  gap: 80px; /* logo-yazı arası mesafe, azaltıp çoğaltabilirsin */
-}
-
-
-.logo {
-  height: 90px;   /* biraz büyüttük */
-  width: auto;
-  border-radius: 12px;  /* köşeleri yumuşattık */
-
-}
-
-.header-text {
-  font-family: 'Playfair Display', serif;
-  font-size: 28px;
-  font-weight: 700;
-  text-align: center;
-  color: #1a1ea0;
-  text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
-  opacity: 0;
-  transform: translateY(-20px);
-  animation: fadeInUp 1.2s ease-out forwards;
-}
-
-
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-/* Geçiş animasyonu için genel class */
-section {
-  opacity: 0;
-  transform: translateY(20px); /* biraz aşağıdan başlasın */
-  transition: opacity 0.6s ease, transform 0.6s ease;
-  display: none; /* default gizli */
-}
-
-section.active {
-  display: block;
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* === SECTION FADE + SLIDE GEÇİŞİ === */
-section {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-  display: none;
-}
-
-section.active {
-  display: block;
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* === LOGO ANİMASYONLARI === */
-.logo {
-  height: 80px;
-  width: auto;
-  animation: slideInLeft 1.2s ease-out forwards,
-             logoBounceLeft 4s ease-in-out infinite 1.5s;
-}
-
-@keyframes slideInLeft {
-  from {
-    transform: translateX(-100px) scale(0.7);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0) scale(1);
-    opacity: 1;
-  }
-}
-
-.logo-right {
-  height: 80px;
-  width: auto;
-  animation: slideInRight 1.2s ease-out forwards,
-             logoBounceRight 4s ease-in-out infinite 1.5s;
-}
-
-@keyframes slideInRight {
-  from {
-    transform: translateX(100px) scale(0.7);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0) scale(1);
-    opacity: 1;
-  }
-}
-
-@keyframes logoBounceLeft {
-  0%, 100% {
-    transform: translateX(0) scale(1);
-  }
-  50% {
-    transform: translateX(-10px) scale(1.1);
-  }
-}
-
-@keyframes logoBounceRight {
-  0%, 100% {
-    transform: translateX(0) scale(1);
-  }
-  50% {
-    transform: translateX(10px) scale(1.1);
-  }
-}
-
-
-
-
-   nav {
-    background: #FFA442;
-    display: flex;
-    justify-content: center;
-    flex-wrap: nowrap;    /* menü alt satıra geçmesin */
-    overflow-x: auto;     /* dar ekranda yatay kaydırma olsun */
-}
-
-    nav a {
-    color: white;
-    padding: 1rem;
-    text-decoration: none;
-    white-space: nowrap;  /* kelimeler alt satıra geçmesin */
-    flex-shrink: 0;       /* daralsa da küçülmesin */
-}
-
-    nav a:hover {
-        background: #FF6842;
-    }
-    .hero {
-        background: url('https://source.unsplash.com/1200x400/?education,classroom') center/cover;
-        color: white;
-        text-align: center;
-        padding: 4rem 2rem;
-    }
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-    section {
-        padding: 2rem;
-        max-width: 1000px;
-        margin: auto;
-    }
-    .courses {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-    }
-    .course {
-    flex: 1 1 300px;
-    background: rgba(20, 20, 20, 0.85); /* koyu siyah ton */
-    padding: 1rem;
-    border-radius: 8px;
-    color: #fffbea; /* yazılar açık kalsın */
-}
-
-    .contact form {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-    .contact input, .contact textarea {
-        padding: 0.5rem;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-    }
-    .contact button {
-        background: #007BFF;
-        color: white;
-        border: none;
-        padding: 0.7rem;
-        cursor: pointer;
-    }
-    .contact button:hover {
-        background: #0056b3;
-    }
-    footer {
-        background: #222;
-        color: #aaa;
-        text-align: center;
-        padding: 1rem;
-        margin-top: 2rem;
-    }
-	h2, h3 {
-    font-family: 'Playfair Display', serif;
+		/* Arka plan görseli */
+		background-image: url('https://r.resimlink.com/yPt3I9.jpg');
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-attachment: fixed; /* sayfa kayınca arka plan sabit kalır */
+		background-color: #ffffff; /* yedek olarak beyaz arka plan */
 	}
-	h1 {
-	font-family: 'Made Carving', cursive;
-	}
-	
-	#about {
-    text-align: center;
-	}
-	
-	#about h2 {
-    font-size: 28px; /* Başlık boyutu */
+	section {
+		background-color: rgba(34, 34, 34, 0.7); /* beyaz, %85 opaklık */
+		padding: 2rem;
+		max-width: 1000px;
+		margin: auto;
+		border-radius: 8px;
 	}
 
-	#about p {
-    font-size: 18px; /* Paragraf yazı boyutu */
+	section h2 {
+	  color: #ffffff; /* başlıklar turuncu */
+	}
+
+	section p {
+	  color: #fffbea; /* paragraflar krem beyaz */
+	}
+
+
+
+	   header {
+	  background: url('https://img.freepik.com/premium-vektor/turuncu-ve-acik-kahverengi-renk-tonlamali-modern-arka-plan-sablonu-sicrama-efekti_586360-452.jpg');
+	  color: white;
+	  padding: 1.5rem 2rem;
+	}
+
+	.header-container {
+	  display: flex;
+	  align-items: center;
+	  justify-content: center; /* space-between yerine ortala */
+	  gap: 80px; /* logo-yazı arası mesafe, azaltıp çoğaltabilirsin */
+	}
+
+
+	.logo {
+	  height: 90px;   /* biraz büyüttük */
+	  width: auto;
+	  border-radius: 12px;  /* köşeleri yumuşattık */
+
+	}
+
+	.header-text {
+	  font-family: 'Playfair Display', serif;
+	  font-size: 28px;
+	  font-weight: 700;
+	  text-align: center;
+	  color: #1a1ea0;
+	  text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+	  opacity: 0;
+	  transform: translateY(-20px);
+	  animation: fadeInUp 1.2s ease-out forwards;
+	}
+
+
+	@keyframes fadeInUp {
+	  to {
+		opacity: 1;
+		transform: translateY(0);
+	  }
+	}
+	/* Geçiş animasyonu için genel class */
+	section {
+	  opacity: 0;
+	  transform: translateY(20px); /* biraz aşağıdan başlasın */
+	  transition: opacity 0.6s ease, transform 0.6s ease;
+	  display: none; /* default gizli */
+	}
+
+	section.active {
+	  display: block;
+	  opacity: 1;
+	  transform: translateY(0);
+	}
+
+	/* === SECTION FADE + SLIDE GEÇİŞİ === */
+	section {
+	  opacity: 0;
+	  transform: translateY(20px);
+	  transition: opacity 0.6s ease, transform 0.6s ease;
+	  display: none;
+	}
+
+	section.active {
+	  display: block;
+	  opacity: 1;
+	  transform: translateY(0);
+	}
+
+	/* === LOGO ANİMASYONLARI === */
+	.logo {
+	  height: 80px;
+	  width: auto;
+	  animation: slideInLeft 1.2s ease-out forwards,
+				 logoBounceLeft 4s ease-in-out infinite 1.5s;
+	}
+
+	@keyframes slideInLeft {
+	  from {
+		transform: translateX(-100px) scale(0.7);
+		opacity: 0;
+	  }
+	  to {
+		transform: translateX(0) scale(1);
+		opacity: 1;
+	  }
+	}
+
+	.logo-right {
+	  height: 80px;
+	  width: auto;
+	  animation: slideInRight 1.2s ease-out forwards,
+				 logoBounceRight 4s ease-in-out infinite 1.5s;
+	}
+
+	@keyframes slideInRight {
+	  from {
+		transform: translateX(100px) scale(0.7);
+		opacity: 0;
+	  }
+	  to {
+		transform: translateX(0) scale(1);
+		opacity: 1;
+	  }
+	}
+
+	@keyframes logoBounceLeft {
+	  0%, 100% {
+		transform: translateX(0) scale(1);
+	  }
+	  50% {
+		transform: translateX(-10px) scale(1.1);
+	  }
+	}
+
+	@keyframes logoBounceRight {
+	  0%, 100% {
+		transform: translateX(0) scale(1);
+	  }
+	  50% {
+		transform: translateX(10px) scale(1.1);
+	  }
+	}
+
+
+
+
+	   nav {
+		background: #FFA442;
+		display: flex;
+		justify-content: center;
+		flex-wrap: nowrap;    /* menü alt satıra geçmesin */
+		overflow-x: auto;     /* dar ekranda yatay kaydırma olsun */
+	}
+
+		nav a {
+		color: white;
+		padding: 1rem;
+		text-decoration: none;
+		white-space: nowrap;  /* kelimeler alt satıra geçmesin */
+		flex-shrink: 0;       /* daralsa da küçülmesin */
+	}
+
+		nav a:hover {
+			background: #FF6842;
+		}
+		.hero {
+			background: url('https://source.unsplash.com/1200x400/?education,classroom') center/cover;
+			color: white;
+			text-align: center;
+			padding: 4rem 2rem;
+		}
+		.hero h1 {
+			font-size: 2.5rem;
+		}
+		section {
+			padding: 2rem;
+			max-width: 1000px;
+			margin: auto;
+		}
+		.courses {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 1rem;
+		}
+		.course {
+		flex: 1 1 300px;
+		background: rgba(20, 20, 20, 0.85); /* koyu siyah ton */
+		padding: 1rem;
+		border-radius: 8px;
+		color: #fffbea; /* yazılar açık kalsın */
+	}
+
+		.contact form {
+			display: flex;
+			flex-direction: column;
+			gap: 0.5rem;
+		}
+		.contact input, .contact textarea {
+			padding: 0.5rem;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+		}
+		.contact button {
+			background: #007BFF;
+			color: white;
+			border: none;
+			padding: 0.7rem;
+			cursor: pointer;
+		}
+		.contact button:hover {
+			background: #0056b3;
+		}
+		footer {
+			background: #222;
+			color: #aaa;
+			text-align: center;
+			padding: 1rem;
+			margin-top: 2rem;
+		}
+		h2, h3 {
+		font-family: 'Playfair Display', serif;
+		}
+		h1 {
+		font-family: 'Made Carving', cursive;
 		}
 		
-	#rehberlik {
-    text-align: center;
-	}
-	
-	#rehberlik h2 {
-    font-size: 28px; /* Başlık boyutu */
-	}
-
-	#rehberlik p {
-    font-size: 18px; /* Paragraf yazı boyutu */
+		#about {
+		text-align: center;
 		}
 		
-	#kadromuz {
-    text-align: center;
-	}
-	
-	#kadromuz h2 {
-    font-size: 28px; /* Başlık boyutu */
-	}
+		#about h2 {
+		font-size: 28px; /* Başlık boyutu */
+		}
 
-	#kadromuz p {
-    font-size: 18px; /* Paragraf yazı boyutu */
+		#about p {
+		font-size: 18px; /* Paragraf yazı boyutu */
+			}
+			
+		#rehberlik {
+		text-align: center;
 		}
 		
-	#courses h2 {
-    font-size: 28px; /* Başlık boyutu */
-	}
-	
-	#courses {
-    text-align: center;
-	}
-	
-	#courses p {
-    font-size: 18px; /* Paragraf yazı boyutu */
+		#rehberlik h2 {
+		font-size: 28px; /* Başlık boyutu */
+		}
+
+		#rehberlik p {
+		font-size: 18px; /* Paragraf yazı boyutu */
+			}
+			
+		#kadromuz {
+		text-align: center;
 		}
 		
-	#kazandirdiklarimiz {
-    text-align: center;
-	}
-	
-	#kazandirdiklarimiz h2 {
-    font-size: 28px; /* Başlık boyutu */
-	}
-
-	#kazandirdiklarimiz p {
-    font-size: 18px; /* Paragraf yazı boyutu */
+		#kadromuz h2 {
+		font-size: 28px; /* Başlık boyutu */
 		}
+
+		#kadromuz p {
+		font-size: 18px; /* Paragraf yazı boyutu */
+			}
 			
-	#galeri {
-    text-align: center;
-	}
-	
-	#galeri h2 {
-    font-size: 28px; /* Başlık boyutu */
-	}
-
-	#galeri p {
-    font-size: 18px; /* Paragraf yazı boyutu */
+		#courses h2 {
+		font-size: 28px; /* Başlık boyutu */
 		}
+		
+		#courses {
+		text-align: center;
+		}
+		
+		#courses p {
+		font-size: 18px; /* Paragraf yazı boyutu */
+			}
 			
-	#etkinlikler {
-    text-align: center;
-	}
-	
-	#etkinlikler h2 {
-    font-size: 28px; /* Başlık boyutu */
-	}
-
-	#etkinlikler p {
-    font-size: 18px; /* Paragraf yazı boyutu */
+		#kazandirdiklarimiz {
+		text-align: center;
 		}
-			
-	#deneme {
-    text-align: center;
-	}
-	
-	#deneme h2 {
-    font-size: 28px; /* Başlık boyutu */
-	}
-
-	#deneme p {
-    font-size: 18px; /* Paragraf yazı boyutu */
+		
+		#kazandirdiklarimiz h2 {
+		font-size: 28px; /* Başlık boyutu */
 		}
-			
-	#dersprogrami {
-    text-align: center;
-	}
-	
-	#dersprogrami h2 {
-    font-size: 28px; /* Başlık boyutu */
-	}
 
-	#dersprogrami p {
-    font-size: 18px; /* Paragraf yazı boyutu */
+		#kazandirdiklarimiz p {
+		font-size: 18px; /* Paragraf yazı boyutu */
+			}
+				
+		#galeri {
+		text-align: center;
 		}
-			
-	#contact {
-    text-align: center;
-	}
-	
-	#contact h2 {
-    font-size: 28px; /* Başlık boyutu */
-	}
-
-	#contact p {
-    font-size: 18px; /* Paragraf yazı boyutu */
+		
+		#galeri h2 {
+		font-size: 28px; /* Başlık boyutu */
 		}
-		#iletisim {
-  text-align: center;
-  padding: 40px 20px;
-  background: #f9f9f9;
-  border-top: 2px solid #eee;
-}
 
-#iletisim h2 {
-  font-size: 28px;
-  margin-bottom: 20px;
-  color: #333;
-}
+		#galeri p {
+		font-size: 18px; /* Paragraf yazı boyutu */
+			}
+				
+		#etkinlikler {
+		text-align: center;
+		}
+		
+		#etkinlikler h2 {
+		font-size: 28px; /* Başlık boyutu */
+		}
 
-#iletisim p {
-  font-size: 18px;
-  margin: 10px 0;
-}
+		#etkinlikler p {
+		font-size: 18px; /* Paragraf yazı boyutu */
+			}
+				
+		#deneme {
+		text-align: center;
+		}
+		
+		#deneme h2 {
+		font-size: 28px; /* Başlık boyutu */
+		}
 
-.instagram-link {
-  font-weight: bold;
-  color: #e1306c; /* Instagram pembe tonu */
-  text-decoration: none;
-  transition: color 0.3s;
-}
+		#deneme p {
+		font-size: 18px; /* Paragraf yazı boyutu */
+			}
+				
+		#dersprogrami {
+		text-align: center;
+		}
+		
+		#dersprogrami h2 {
+		font-size: 28px; /* Başlık boyutu */
+		}
 
-.instagram-link:hover {
-  color: #c2185b;
-  text-decoration: underline;
-}
-.hero {
-  position: relative;
-  height: 400px; /* istersen daha yüksek yapabilirsin */
-  overflow: hidden;
-}
+		#dersprogrami p {
+		font-size: 18px; /* Paragraf yazı boyutu */
+			}
+				
+		#contact {
+		text-align: center;
+		}
+		
+		#contact h2 {
+		font-size: 28px; /* Başlık boyutu */
+		}
 
-.video-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -2;
-}
+		#contact p {
+		font-size: 18px; /* Paragraf yazı boyutu */
+			}
+			#iletisim {
+	  text-align: center;
+	  padding: 40px 20px;
+	  background: #f9f9f9;
+	  border-top: 2px solid #eee;
+	}
 
-.video-background iframe {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+	#iletisim h2 {
+	  font-size: 28px;
+	  margin-bottom: 20px;
+	  color: #333;
+	}
 
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.4); /* istersen silebilirsin */
-  z-index: -1;
-}
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 10px;
-  margin-top: 20px;
-}
+	#iletisim p {
+	  font-size: 18px;
+	  margin: 10px 0;
+	}
 
-.gallery img {
-  width: 100%;
-  height: 180px; /* sabit yükseklik (ister 150px, ister 200px yapabilirsin) */
-  object-fit: cover; /* orantılı kırparak sığdırır */
-  border-radius: 8px;
-  cursor: pointer;
-  transition: transform 0.3s;
-}
+	.instagram-link {
+	  font-weight: bold;
+	  color: #e1306c; /* Instagram pembe tonu */
+	  text-decoration: none;
+	  transition: color 0.3s;
+	}
 
+	.instagram-link:hover {
+	  color: #c2185b;
+	  text-decoration: underline;
+	}
+	.hero {
+	  position: relative;
+	  height: 400px; /* istersen daha yüksek yapabilirsin */
+	  overflow: hidden;
+	}
 
-.gallery img:hover {
-  transform: scale(1.05);
-}
+	.video-background {
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  width: 100%;
+	  height: 100%;
+	  z-index: -2;
+	}
 
-/* === POPUP === */
-.popup {
-  display: none;
-  position: fixed;
-  z-index: 9999;
-  left: 0; 
-  top: 0;
-  width: 100%; 
-  height: 100%;
-  background-color: rgba(0,0,0,0.8); 
-  justify-content: center; 
-  align-items: center;
-}
+	.video-background iframe {
+	  width: 100%;
+	  height: 100%;
+	  object-fit: cover;
+	}
 
-.popup img {
-  max-width: 80%;
-  max-height: 80%;
-  border-radius: 10px;
-  box-shadow: 0 0 20px #000;
-  animation: fadeIn 0.3s ease;
-}
+	.overlay {
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  width: 100%;
+	  height: 100%;
+	  background: rgba(0,0,0,0.4); /* istersen silebilirsin */
+	  z-index: -1;
+	}
+	.gallery {
+	  display: grid;
+	  grid-template-columns: repeat(6, 1fr);
+	  gap: 10px;
+	  margin-top: 20px;
+	}
 
-.popup .close {
-  position: absolute;
-  top: 20px;
-  right: 40px;
-  color: white;
-  font-size: 40px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.9); }
-  to { opacity: 1; transform: scale(1); }
-}
-/*Bu kisim galeri ve denemelerimiz kismindaki beyazligi kaldirmama yaradi*/
-
-#home {
-  background: transparent !important; /* saydam olsun */
-  box-shadow: none; /* varsa gölgeyi de kaldırır */
-}
-.etkinlikler-gallery {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr); /* her satırda 5 foto */
-  gap: 12px;
-  margin-top: 20px;
-}
-
-.etkinlikler-gallery img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: transform 0.3s;
-}
-
-.etkinlikler-gallery img:hover {
-  transform: scale(1.05);
-}
-nav a:hover {
-  color: #ffd700;
-  transform: scale(1.1);
-  transition: all 0.3s ease;
-}
+	.gallery img {
+	  width: 100%;
+	  height: 180px; /* sabit yükseklik (ister 150px, ister 200px yapabilirsin) */
+	  object-fit: cover; /* orantılı kırparak sığdırır */
+	  border-radius: 8px;
+	  cursor: pointer;
+	  transition: transform 0.3s;
+	}
 
 
+	.gallery img:hover {
+	  transform: scale(1.05);
+	}
 
+	/* === POPUP === */
+	.popup {
+	  display: none;
+	  position: fixed;
+	  z-index: 9999;
+	  left: 0; 
+	  top: 0;
+	  width: 100%; 
+	  height: 100%;
+	  background-color: rgba(0,0,0,0.8); 
+	  justify-content: center; 
+	  align-items: center;
+	}
 
+	.popup img {
+	  max-width: 80%;
+	  max-height: 80%;
+	  border-radius: 10px;
+	  box-shadow: 0 0 20px #000;
+	  animation: fadeIn 0.3s ease;
+	}
 
+	.popup .close {
+	  position: absolute;
+	  top: 20px;
+	  right: 40px;
+	  color: white;
+	  font-size: 40px;
+	  font-weight: bold;
+	  cursor: pointer;
+	}
 
-/* === RESPONSIVE / MOBİL === */
-@media (max-width: 768px) {
-  /* Galeri ve etkinlikler mobilde 2 sütun */
-  .gallery, 
-  .etkinlikler-gallery {
-    grid-template-columns: repeat(2, 1fr);
-  }
+	@keyframes fadeIn {
+	  from { opacity: 0; transform: scale(0.9); }
+	  to { opacity: 1; transform: scale(1); }
+	}
+	/*Bu kisim galeri ve denemelerimiz kismindaki beyazligi kaldirmama yaradi*/
 
-  /* Header container mobilde dikey */
-  .header-container {
-    flex-direction: column;
-    gap: 10px;
-  }
+	#home {
+	  background: transparent !important; /* saydam olsun */
+	  box-shadow: none; /* varsa gölgeyi de kaldırır */
+	}
+	.etkinlikler-gallery {
+	  display: grid;
+	  grid-template-columns: repeat(5, 1fr); /* her satırda 5 foto */
+	  gap: 12px;
+	  margin-top: 20px;
+	}
 
-  /* Menü dikey ve ortalanmış */
-  nav {
-    flex-direction: column;
-    align-items: center;
-  }
+	.etkinlikler-gallery img {
+	  width: 100%;
+	  height: auto;
+	  border-radius: 8px;
+	  cursor: pointer;
+	  transition: transform 0.3s;
+	}
 
-  /* Menü linkleri mobilde biraz daha büyük ve ortalı */
-  nav a {
-    padding: 0.8rem 1.2rem;
-    text-align: center;
-  }
-}
-
-
-
-
-
-
-/* Genel buton stili */
-button {
-  background: linear-gradient(45deg, #ff9800, #ff5722); /* turuncu geçişli */
-  border: none;
-  color: white;
-  padding: 12px 24px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: bold;
-  transition: all 0.3s ease; /* animasyon yumuşak */
-}
-
-/* Hover (fare üstüne gelince) */
-button:hover {
-  transform: translateY(-3px); /* yukarı kalksın */
-  box-shadow: 0 6px 12px rgba(0,0,0,0.3); /* gölge */
-}
-
-/* Active (tıklanınca) */
-button:active {
-  transform: translateY(0); /* tekrar iner */
-  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
-}
-
-
-/* Menü linkleri */
-nav a {
-  color: white;
-  padding: 1rem 1.5rem;
-  text-decoration: none;
-  font-weight: 600;
-  position: relative;
-  transition: all 0.3s ease;
-}
-
-/* Hover (fare üstüne gelince) */
-nav a:hover {
-  color: #fff;
-  background: #FF6842; /* arka plan turuncuya dönsün */
-  border-radius: 6px;
-  transform: translateY(-3px); /* hafif yukarı kalksın */
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* gölge efekti */
-}
-
-/* Tıklanınca (aktif his versin) */
-nav a:active {
-  transform: translateY(0); /* yerine geri insin */
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-}
-
-
-nav {
-  position: sticky;
-  top: 0;
-  z-index: 999;
-}
-
-nav.sticky {
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-}
-
-.deneme-container img {
-  width: 900px;
-  height: auto;
-}
-
-.about-images {
-  display: flex;
-  justify-content: center; /* ortalasın */
-  gap: 20px;               /* aralarında boşluk */
-  margin-top: 20px;
-  flex-wrap: wrap;         /* mobilde alta geçsin */
-}
-
-.about-images img {
-  width: 45%;      /* iki foto yan yana sığsın */
-  max-width: 400px;
-  border-radius: 10px;
-  object-fit: cover;
-}
-
-
-.dersprogrami-gallery {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 sütun */
-  gap: 15px;
-  margin-top: 20px;
-}
-
-.dersprogrami-gallery img {
-  width: 100%;
-  height: 250px;      /* sabit yükseklik */
-  object-fit: cover;  /* oranı bozmadan kırp */
-  border-radius: 8px;
-  cursor: pointer;
-  transition: transform 0.3s;
-}
-
-.dersprogrami-gallery img:hover {
-  transform: scale(1.05);
-}
-
-iframe {
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  max-height: 100%;
-  border: none;
-}
-.hero {
-  position: relative;
-  height: 600px; /* daha yüksek yapabilirsiniz, örn: 700px */
-  width: 100%;
-  overflow: hidden;
-}
-@media (max-width: 768px) {
-  .hero {
-    height: 400px; /* mobilde daha küçük */
-  }
-  
-  nav a {
-    white-space: nowrap; /* metin alt satıra geçmesin */
-}
-
-
-</style>
-</head>
-<body>
-
-<header>
-  <div class="header-container">
-    <!-- Sol logo -->
-    <img src="https://r.resimlink.com/NlQmbcgTPU.png" alt="Logo Sol" class="logo">
-
-    <!-- Ortadaki yazı -->
-    <p class="header-text">EĞİTİMDE DİSİPLİN REHBERLİK İLE SAĞLANIR</p>
-
-    <!-- Sağ logo -->
-    <img src="https://r.resimlink.com/NlQmbcgTPU.png" alt="Logo Sağ" class="logo">
-  </div>
-</header>
+	.etkinlikler-gallery img:hover {
+	  transform: scale(1.05);
+	}
+	nav a:hover {
+	  color: #ffd700;
+	  transform: scale(1.1);
+	  transition: all 0.3s ease;
+	}
 
 
 
 
 
-<!-- MENÜ -->
-<nav>
-    <a href="javascript:void(0)" onclick="showSection('home')">Ana Sayfa</a>
-    <a href="javascript:void(0)" onclick="showSection('about')">Hakkımızda</a>
-    <a href="javascript:void(0)" onclick="showSection('courses')">Kurslar</a>
-    <a href="javascript:void(0)" onclick="showSection('rehberlik')">Rehberlik</a>
-    <a href="javascript:void(0)" onclick="showSection('kadromuz')">Kadromuz</a>
-    <a href="javascript:void(0)" onclick="showSection('kazandirdiklarimiz')">Kazandırdıklarımız</a>
-    <a href="javascript:void(0)" onclick="showSection('galeri')">Galeri</a>
-    <a href="javascript:void(0)" onclick="showSection('etkinlikler')">Etkinliklerimiz</a>
-    <a href="javascript:void(0)" onclick="showSection('deneme')">Denemelerimiz</a>
-    <a href="javascript:void(0)" onclick="showSection('dersprogrami')">Ders Programları</a>
-    <a href="javascript:void(0)" onclick="showSection('contact')">İletişim</a>
-</nav>
 
-<!-- ANA SAYFA -->
+	/* === RESPONSIVE / MOBİL === */
+	@media (max-width: 768px) {
+	  /* Galeri ve etkinlikler mobilde 2 sütun */
+	  .gallery, 
+	  .etkinlikler-gallery {
+		grid-template-columns: repeat(2, 1fr);
+	  }
+
+	  /* Header container mobilde dikey */
+	  .header-container {
+		flex-direction: column;
+		gap: 10px;
+	  }
+
+	  /* Menü dikey ve ortalanmış */
+	  nav {
+		flex-direction: column;
+		align-items: center;
+	  }
+
+	  /* Menü linkleri mobilde biraz daha büyük ve ortalı */
+	  nav a {
+		padding: 0.8rem 1.2rem;
+		text-align: center;
+	  }
+	}
+
+
+
+
+
+
+	/* Genel buton stili */
+	button {
+	  background: linear-gradient(45deg, #ff9800, #ff5722); /* turuncu geçişli */
+	  border: none;
+	  color: white;
+	  padding: 12px 24px;
+	  border-radius: 8px;
+	  cursor: pointer;
+	  font-size: 16px;
+	  font-weight: bold;
+	  transition: all 0.3s ease; /* animasyon yumuşak */
+	}
+
+	/* Hover (fare üstüne gelince) */
+	button:hover {
+	  transform: translateY(-3px); /* yukarı kalksın */
+	  box-shadow: 0 6px 12px rgba(0,0,0,0.3); /* gölge */
+	}
+
+	/* Active (tıklanınca) */
+	button:active {
+	  transform: translateY(0); /* tekrar iner */
+	  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+	}
+
+
+	/* Menü linkleri */
+	nav a {
+	  color: white;
+	  padding: 1rem 1.5rem;
+	  text-decoration: none;
+	  font-weight: 600;
+	  position: relative;
+	  transition: all 0.3s ease;
+	}
+
+	/* Hover (fare üstüne gelince) */
+	nav a:hover {
+	  color: #fff;
+	  background: #FF6842; /* arka plan turuncuya dönsün */
+	  border-radius: 6px;
+	  transform: translateY(-3px); /* hafif yukarı kalksın */
+	  box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* gölge efekti */
+	}
+
+	/* Tıklanınca (aktif his versin) */
+	nav a:active {
+	  transform: translateY(0); /* yerine geri insin */
+	  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+	}
+
+
+	nav {
+	  position: sticky;
+	  top: 0;
+	  z-index: 999;
+	}
+
+	nav.sticky {
+	  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+	}
+
+	.deneme-container img {
+	  width: 900px;
+	  height: auto;
+	}
+
+	.about-images {
+	  display: flex;
+	  justify-content: center; /* ortalasın */
+	  gap: 20px;               /* aralarında boşluk */
+	  margin-top: 20px;
+	  flex-wrap: wrap;         /* mobilde alta geçsin */
+	}
+
+	.about-images img {
+	  width: 45%;      /* iki foto yan yana sığsın */
+	  max-width: 400px;
+	  border-radius: 10px;
+	  object-fit: cover;
+	}
+
+
+	.dersprogrami-gallery {
+	  display: grid;
+	  grid-template-columns: repeat(3, 1fr); /* 3 sütun */
+	  gap: 15px;
+	  margin-top: 20px;
+	}
+
+	.dersprogrami-gallery img {
+	  width: 100%;
+	  height: 250px;      /* sabit yükseklik */
+	  object-fit: cover;  /* oranı bozmadan kırp */
+	  border-radius: 8px;
+	  cursor: pointer;
+	  transition: transform 0.3s;
+	}
+
+	.dersprogrami-gallery img:hover {
+	  transform: scale(1.05);
+	}
+
+	iframe {
+	  width: 100%;
+	  height: auto;
+	  max-width: 100%;
+	  max-height: 100%;
+	  border: none;
+	}
+	.hero {
+	  position: relative;
+	  height: 600px; /* daha yüksek yapabilirsiniz, örn: 700px */
+	  width: 100%;
+	  overflow: hidden;
+	}
+	@media (max-width: 768px) {
+	  .hero {
+		height: 400px; /* mobilde daha küçük */
+	  }
+	  
+	  nav a {
+		white-space: nowrap; /* metin alt satıra geçmesin */
+	}
+
+
+	</style>
+	</head>
+	<body>
+
+	<header>
+	  <div class="header-container">
+		<!-- Sol logo -->
+		<img src="https://r.resimlink.com/NlQmbcgTPU.png" alt="Logo Sol" class="logo">
+
+		<!-- Ortadaki yazı -->
+		<p class="header-text">EĞİTİMDE DİSİPLİN REHBERLİK İLE SAĞLANIR</p>
+
+		<!-- Sağ logo -->
+		<img src="https://r.resimlink.com/NlQmbcgTPU.png" alt="Logo Sağ" class="logo">
+	  </div>
+	</header>
+
+
+
+
+
+	<!-- MENÜ -->
+	<nav>
+		<a href="javascript:void(0)" onclick="showSection('home')">Ana Sayfa</a>
+		<a href="javascript:void(0)" onclick="showSection('about')">Hakkımızda</a>
+		<a href="javascript:void(0)" onclick="showSection('courses')">Kurslar</a>
+		<a href="javascript:void(0)" onclick="showSection('rehberlik')">Rehberlik</a>
+		<a href="javascript:void(0)" onclick="showSection('kadromuz')">Kadromuz</a>
+		<a href="javascript:void(0)" onclick="showSection('kazandirdiklarimiz')">Kazandırdıklarımız</a>
+		<a href="javascript:void(0)" onclick="showSection('galeri')">Galeri</a>
+		<a href="javascript:void(0)" onclick="showSection('etkinlikler')">Etkinliklerimiz</a>
+		<a href="javascript:void(0)" onclick="showSection('deneme')">Denemelerimiz</a>
+		<a href="javascript:void(0)" onclick="showSection('dersprogrami')">Ders Programları</a>
+		<a href="javascript:void(0)" onclick="showSection('contact')">İletişim</a>
+	</nav>
+
+	<!-- ANA SAYFA -->
 <section id="home" class="active">
     <div class="hero">
-    <iframe 
-        src="https://www.youtube.com/embed/wL_5Agy-eHc?autoplay=1&mute=1&loop=1&playlist=wL_5Agy-eHc&controls=0&modestbranding=1&rel=0"
-        frameborder="0"
-        allow="autoplay; fullscreen"
-        allowfullscreen
-        style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; z-index: -1;">
-    </iframe>
-	<button onclick="playVideo()" style="position:absolute; top:10px; left:10px; z-index:10; padding:10px 20px; font-size:16px; cursor:pointer;">
-    ► Sesli Başlat
-</button>
+        <iframe 
+            src="https://www.youtube.com/embed/lpo9BSnl3K4?autoplay=1&mute=1&loop=1&playlist=lpo9BSnl3K4&controls=0&modestbranding=1&rel=0"
+            frameborder="0"
+            allow="autoplay; fullscreen"
+            allowfullscreen
+            style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; z-index: -1;">
+        </iframe>
 
-</div>
-
+        <button onclick="playVideo()" 
+                style="position:absolute; top:10px; left:10px; z-index:10; padding:10px 20px; font-size:16px; cursor:pointer;">
+            ► Sesli Başlat
+        </button>
+    </div>
 </section>
-
-
-
-
-<!-- HAKKIMIZDA -->
-<section id="about" style="display:none;">
-    <h2>HAKKIMIZDA</h2>
-    <p>Dershanemiz, yıllardır öğrencilere kaliteli eğitim sunan bir kurumdur. Sınavlara hazırlıkta uzman öğretmen kadromuzla öğrencilerimizin yanında olmaktan gurur duyuyoruz. </p>	
-	<div class="about-images">
-  <img src="https://r.resimlink.com/WzYrI4d.jpg" alt="Fotoğraf 1">
-  <img src="https://r.resimlink.com/8LHbfv.jpg" alt="Fotoğraf 2">
-</div>
-
 	
-</section>
-
-<!-- KURSLAR -->
-<section id="courses" style="display:none;">
-    <h2>KURSLARIMIZ</h2>
-    <div class="courses">
-        <div class="course">
-            <h3>TYT - AYT Hazırlık</h3>
-            <p>Üniversiteye hazırlanan öğrencilerimiz için TYT ve AYT kurslarımız.</p>
-        </div>
-        <div class="course">
-            <h3>Birebir ve Grup Ders</h3>
-            <p>Her sinif düzeyinde birebir özel ders ve grup dersleri.</p>
-        </div>
-        <div class="course">
-            <h3>Yabancı Dil Kursları</h3>
-            <p>İngilizce ve Almanca dil kurslarımız.</p>
-        </div>
-        <div class="course">
-            <h3>KPSS Hazırlık</h3>
-            <p>Ön Lisans ve Lisans için genel yetenek ve genel kültür kurslarımız.</p>
-        </div>
-    </div>
-</section>
-
-<!-- REHBERLİK -->
-<section id="rehberlik" style="display:none;">
-    <h2>REHBERLİK</h2>
-            <p>Bizler Kurum olarak egitimde disiplinin rehberlikle saglandigina inaniyoruz.</p>
-			<p>Her ögrenci özeldir ve özel bir rehberlik almayi hak eder.</p>
-			<p>Bu anlayisla ögrencilerimizi ödevlendirirken kendi seviyelerine uygun,</p>
-			<p>üstesinden gelebilecekleri ödevler vererek rehberlik yapmaktayiz. </p>
-			<p>Verdigimiz ödevler, ögrencilerimizin durumlari, denemelerinin sonuclari ve devamsizliklari</p>
-			<p>velileriyle paylasilarak bilgilendirme sistemi yapilmaktadir.</p>
-			<p>Amacimiz bu zorlu yolculukta hem velimizin destegini almak</p>
-			<p>hem de velimizin ögrenci üzerindeki gücünü kullanarak ögrencimizin ders calismasini saglayabilmektir. </p>
-</section>
-
-<!-- KADROMUZ -->
-<section id="kadromuz" style="display:none;">
-    <h2>KADROMUZ</h2>
-    <h3></h3>
-            <p>Calisma arkadaslarimizin tümü bransinda uzman, soru cözme kabiliyeti yüksek, ÖSYM müfredatina</p>
-			<p>ve soru tipine hakim ögretmenlerden olusmaktadir.Gerek konu anlatimi, gerek soru cözümü,</p>
-			<p>gerekse ögrencilerle olan iliskileri yeterli olan kadromuz, enerjisi yüksek ve ögrencilerimize davranislariyla</p> 
-			<p>örnek olabilecek bireylerdir. Bizler ögretmenligi sadece konu anlatan ve soru cözen meslek olarak görmemekteyiz.</p>
-			<p>Sahsiyetleri ve davranislariyla ögretmenlik meslegini benimsemis, genclerimize her anlamda örnek olabilecek egitimcilerle calismaktayiz. </p>
-</section>
-
-<!-- KAZANDIRDIKLARIMIZ -->
-<section id="kazandirdiklarimiz" style="display:none;">
-    <h2>KAZANDIRDIKLARIMIZ</h2>
-    <p>Nihat Ramazan: TH Köln Informatik(Almanya)</p>
-</section>
-
-<!-- GALERİ -->
-<section id="galeri" style="display:none;">
-    <h2>GALERİ</h2>
-    <div class="gallery">
-        <img src="https://r.resimlink.com/cgfYGD4_OCd.jpg" alt="Foto 1" onclick="openPopup(this)">
-        <img src="https://r.resimlink.com/oyQdZTCxJs.jpg" alt="Foto 2" onclick="openPopup(this)">
-        <img src="https://r.resimlink.com/H1jRmh.jpg" alt="Foto 3" onclick="openPopup(this)">
-        <img src="https://r.resimlink.com/uQo89XND.jpg" alt="Foto 4" onclick="openPopup(this)">
-        <img src="https://r.resimlink.com/var4R-SN8.jpg" alt="Foto 6" onclick="openPopup(this)">
-		<img src="https://r.resimlink.com/xCqE2e4.jpg" alt="Foto 1" onclick="openPopup(this)">
-        <img src="https://r.resimlink.com/ZL2VMhpeAk8.jpg" alt="Foto 2" onclick="openPopup(this)">
-        <img src="https://r.resimlink.com/5mL2XC7_.jpg" alt="Foto 3" onclick="openPopup(this)">
-        <img src="https://r.resimlink.com/tm6aKg8IVcY9.jpg" alt="Foto 4" onclick="openPopup(this)">
-        <img src="https://r.resimlink.com/GcAVfX3t.jpg" alt="Foto 5" onclick="openPopup(this)">
-        <img src="https://r.resimlink.com/riChPGzga0.jpg" alt="Foto 6" onclick="openPopup(this)">
-		<img src="https://r.resimlink.com/VY03jhD2U.jpg" alt="Foto 5" onclick="openPopup(this)">
-        <img src="https://r.resimlink.com/tRzNECGhpPi.jpg" alt="Foto 6" onclick="openPopup(this)">
-		<img src="https://r.resimlink.com/EuoZp7cHF.jpg" alt="Foto 5" onclick="openPopup(this)">
-        <img src="https://r.resimlink.com/BKdb_8ugmfGI.jpg" alt="Foto 6" onclick="openPopup(this)">
-		<img src="https://r.resimlink.com/17nk8KO6ogV.jpg" alt="Foto 5" onclick="openPopup(this)">
-        <img src="https://r.resimlink.com/Pej9gYWRbtcB.jpg" alt="Foto 6" onclick="openPopup(this)">
-		<img src="https://r.resimlink.com/1gy3_HMJSuP.jpg" alt="Foto 5" onclick="openPopup(this)">
-        <img src="https://r.resimlink.com/m8V7pO9vxy.jpg" alt="Foto 6" onclick="openPopup(this)">
-		<img src="https://r.resimlink.com/fg6zv.jpg" alt="Foto 5" onclick="openPopup(this)">
-        <img src="https://r.resimlink.com/sahqk2Q.jpg" alt="Foto 6" onclick="openPopup(this)">
-    </div>
-</section>
-
-<!-- Popup kutusu -->
-<div id="popup" class="popup" onclick="closePopup()">
-    <span class="close">&times;</span>
-    <img id="popup-img" src="" alt="Büyük Görsel">
-</div>
 
 
 
 
-<!-- ETKİNLİKLER -->
-<section id="etkinlikler" style="display:none;">
-    <h2>ETKİNLİKLERİMİZ</h2>
-    <div class="etkinlikler-gallery">
-		<p>Gaziantep Islahiye Iilcesi Yesemek Acik Hava Müzesi Gezisi </p>
-		<p>Gaziantep Hayvanat Bahcesi Gezisi</p>
-		<p>Gaziantep Harikalar Diyari Gezisi </p>
-		<p>Kilis Sögütlüdere Mangal Etkinligi </p>
-		<p>Veli Bagevi Pikinik Eglencesi </p>
-		<p>Mezuniyet Gecesi </p>
-		<p>TYT Bitirme Pastasi</p>
-		<p>Yil Sonu Pastasi</p>
-		<p>Ögretmenler Günü Etkinligi </p>
-		<p>Kadinlar Günü Etkinligi</p>
-		<p>Kutlu Dogum Haftasi Etkinligi</p>
-    </div>
-</section>
+	<!-- HAKKIMIZDA -->
+	<section id="about" style="display:none;">
+		<h2>HAKKIMIZDA</h2>
+		<p>Dershanemiz, yıllardır öğrencilere kaliteli eğitim sunan bir kurumdur. Sınavlara hazırlıkta uzman öğretmen kadromuzla öğrencilerimizin yanında olmaktan gurur duyuyoruz. </p>	
+		<div class="about-images">
+	  <img src="https://r.resimlink.com/WzYrI4d.jpg" alt="Fotoğraf 1">
+	  <img src="https://r.resimlink.com/8LHbfv.jpg" alt="Fotoğraf 2">
+	</div>
 
+		
+	</section>
 
-<!-- DENEMELER -->
-<section id="deneme" style="display:none;">
-    <h2>DENEMELERİMİZ</h2>
-    <div class="deneme-container">
-	<p> 2025-26 Egitim Ögretim yilinda Kurumumuzda uygulanacak TYT AYT Denemeleri listesi asagidaki görsellerde paylasilmistir.</p>
-	<p> ÜcDörtBes ALL STAR denemelerinin yer aldigi ENDENEME KUKÜBÜ 2025-26 yilina ait tüm denemeleri ilimizde sadece Kurumumuzda yapilacaktir. </p>
-	<p>Kurumumuzda Her Hafta Cuma Günü Sabah ve Aksam Seanslari Olmak Üzere TYT Denemesi Yapilmaktadir. Aralik Ayindan Itibaren Ise Bu denemelere AYT Denemeleri De Eklenerek Mayisin Ücüncü Haftasina KAdar Haftada Iki Deneme Uygulanmaktadir. 19 Mayistan Sonra Sinavdan Bir Gün Öncesine Kadar Seri Denemelerimiz(1 Gün TYT 1 Gün AYT) Yapilacaktir </p>
-		<img src="https://r.resimlink.com/vN19GHo.jpg" alt="Denemelerimiz">
-		<img src="https://r.resimlink.com/-uydT_0Q.jpg" alt="Denemelerimiz">
-        <img src="https://r.resimlink.com/PuoVtKR7p1B.jpg" alt="Denemelerimiz">
-    </div>
-</section>
+	<!-- KURSLAR -->
+	<section id="courses" style="display:none;">
+		<h2>KURSLARIMIZ</h2>
+		<div class="courses">
+			<div class="course">
+				<h3>TYT - AYT Hazırlık</h3>
+				<p>Üniversiteye hazırlanan öğrencilerimiz için TYT ve AYT kurslarımız.</p>
+			</div>
+			<div class="course">
+				<h3>Birebir ve Grup Ders</h3>
+				<p>Her sinif düzeyinde birebir özel ders ve grup dersleri.</p>
+			</div>
+			<div class="course">
+				<h3>Yabancı Dil Kursları</h3>
+				<p>İngilizce ve Almanca dil kurslarımız.</p>
+			</div>
+			<div class="course">
+				<h3>KPSS Hazırlık</h3>
+				<p>Ön Lisans ve Lisans için genel yetenek ve genel kültür kurslarımız.</p>
+			</div>
+		</div>
+	</section>
 
+	<!-- REHBERLİK -->
+	<section id="rehberlik" style="display:none;">
+		<h2>REHBERLİK</h2>
+				<p>Bizler Kurum olarak egitimde disiplinin rehberlikle saglandigina inaniyoruz.</p>
+				<p>Her ögrenci özeldir ve özel bir rehberlik almayi hak eder.</p>
+				<p>Bu anlayisla ögrencilerimizi ödevlendirirken kendi seviyelerine uygun,</p>
+				<p>üstesinden gelebilecekleri ödevler vererek rehberlik yapmaktayiz. </p>
+				<p>Verdigimiz ödevler, ögrencilerimizin durumlari, denemelerinin sonuclari ve devamsizliklari</p>
+				<p>velileriyle paylasilarak bilgilendirme sistemi yapilmaktadir.</p>
+				<p>Amacimiz bu zorlu yolculukta hem velimizin destegini almak</p>
+				<p>hem de velimizin ögrenci üzerindeki gücünü kullanarak ögrencimizin ders calismasini saglayabilmektir. </p>
+	</section>
 
-<section id="dersprogrami" style="display:none;">
-  <h2>DERS PROGRAMLARI</h2>
-  <div class="dersprogrami-gallery">
-    <img src="https://r.resimlink.com/63MCU-A0fj.png" alt="Ders Programı 1" onclick="openPopup(this)">
-    <img src="https://r.resimlink.com/Ag1Otl.png" alt="Ders Programı 2" onclick="openPopup(this)">
-   
-  </div>
-</section>
+	<!-- KADROMUZ -->
+	<section id="kadromuz" style="display:none;">
+		<h2>KADROMUZ</h2>
+		<h3></h3>
+				<p>Calisma arkadaslarimizin tümü bransinda uzman, soru cözme kabiliyeti yüksek, ÖSYM müfredatina</p>
+				<p>ve soru tipine hakim ögretmenlerden olusmaktadir.Gerek konu anlatimi, gerek soru cözümü,</p>
+				<p>gerekse ögrencilerle olan iliskileri yeterli olan kadromuz, enerjisi yüksek ve ögrencilerimize davranislariyla</p> 
+				<p>örnek olabilecek bireylerdir. Bizler ögretmenligi sadece konu anlatan ve soru cözen meslek olarak görmemekteyiz.</p>
+				<p>Sahsiyetleri ve davranislariyla ögretmenlik meslegini benimsemis, genclerimize her anlamda örnek olabilecek egitimcilerle calismaktayiz. </p>
+	</section>
 
+	<!-- KAZANDIRDIKLARIMIZ -->
+	<section id="kazandirdiklarimiz" style="display:none;">
+		<h2>KAZANDIRDIKLARIMIZ</h2>
+		<p>Nihat Ramazan: TH Köln Informatik(Almanya)</p>
+	</section>
 
+	<!-- GALERİ -->
+	<section id="galeri" style="display:none;">
+		<h2>GALERİ</h2>
+		<div class="gallery">
+			<img src="https://r.resimlink.com/cgfYGD4_OCd.jpg" alt="Foto 1" onclick="openPopup(this)">
+			<img src="https://r.resimlink.com/oyQdZTCxJs.jpg" alt="Foto 2" onclick="openPopup(this)">
+			<img src="https://r.resimlink.com/H1jRmh.jpg" alt="Foto 3" onclick="openPopup(this)">
+			<img src="https://r.resimlink.com/uQo89XND.jpg" alt="Foto 4" onclick="openPopup(this)">
+			<img src="https://r.resimlink.com/var4R-SN8.jpg" alt="Foto 6" onclick="openPopup(this)">
+			<img src="https://r.resimlink.com/xCqE2e4.jpg" alt="Foto 1" onclick="openPopup(this)">
+			<img src="https://r.resimlink.com/ZL2VMhpeAk8.jpg" alt="Foto 2" onclick="openPopup(this)">
+			<img src="https://r.resimlink.com/5mL2XC7_.jpg" alt="Foto 3" onclick="openPopup(this)">
+			<img src="https://r.resimlink.com/tm6aKg8IVcY9.jpg" alt="Foto 4" onclick="openPopup(this)">
+			<img src="https://r.resimlink.com/GcAVfX3t.jpg" alt="Foto 5" onclick="openPopup(this)">
+			<img src="https://r.resimlink.com/riChPGzga0.jpg" alt="Foto 6" onclick="openPopup(this)">
+			<img src="https://r.resimlink.com/VY03jhD2U.jpg" alt="Foto 5" onclick="openPopup(this)">
+			<img src="https://r.resimlink.com/tRzNECGhpPi.jpg" alt="Foto 6" onclick="openPopup(this)">
+			<img src="https://r.resimlink.com/EuoZp7cHF.jpg" alt="Foto 5" onclick="openPopup(this)">
+			<img src="https://r.resimlink.com/BKdb_8ugmfGI.jpg" alt="Foto 6" onclick="openPopup(this)">
+			<img src="https://r.resimlink.com/17nk8KO6ogV.jpg" alt="Foto 5" onclick="openPopup(this)">
+			<img src="https://r.resimlink.com/Pej9gYWRbtcB.jpg" alt="Foto 6" onclick="openPopup(this)">
+			<img src="https://r.resimlink.com/1gy3_HMJSuP.jpg" alt="Foto 5" onclick="openPopup(this)">
+			<img src="https://r.resimlink.com/m8V7pO9vxy.jpg" alt="Foto 6" onclick="openPopup(this)">
+			<img src="https://r.resimlink.com/fg6zv.jpg" alt="Foto 5" onclick="openPopup(this)">
+			<img src="https://r.resimlink.com/sahqk2Q.jpg" alt="Foto 6" onclick="openPopup(this)">
+		</div>
+	</section>
 
-<!-- İLETİŞİM -->
-<section id="contact" style="display:none;">
-    <h2>İLETİŞİM</h2>
-	<p>📍 Adres: Mehmet Rifat Kazancioglu Mahallesi ORG. Safter Necioglu Bulvari No:32, Kilis, Merkez</p>
-	<p>(Genclik ve Spor Merkezi Karsisi)</p>
-  <p>📞 Telefon: +90 544 379 85 31 - +90 544 379 85 32</p>
-  
-  <p>
-    📸 
-    <a href="https://www.instagram.com/piramit_akademi_kilis?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" 
-       target="_blank" 
-       class="instagram-link">
-       Instagram / @piramit_akademi_kilis
-    </a>
-  </p>
-  <div class="kroki">
-    <img src="https://r.resimlink.com/qarE8p7.jpg" alt="Okul krokisi">
-  </div>
-    
-</section>
-
-<footer>
-    &copy; 2025 PIRAMIT AKADEMI. Tüm hakları saklıdır.
-</footer>
-
-<!-- JS -->
-<script>
-function showSection(id) {
-    let sections = document.querySelectorAll("section");
-
-    sections.forEach(sec => {
-        sec.classList.remove("active"); 
-        sec.style.display = "none";     
-
-        // Eğer home section değilse videoyu sessize al
-        if(sec.id === "home") {
-            const iframe = sec.querySelector("iframe");
-            if(iframe) {
-                // Videoyu sessize al ve autoplay kapat
-                iframe.src = "https://www.youtube.com/embed/wL_5Agy-eHc?autoplay=0&mute=1&loop=1&playlist=wL_5Agy-eHc&controls=0&modestbranding=1&rel=0";
-            }
-        }
-    });
-
-    let selected = document.getElementById(id);
-    selected.style.display = "block"; 
-
-    setTimeout(() => {
-        selected.classList.add("active");
-    }, 50);
-}
-
-
-// === GALERİ POPUP ===
-// Galeri popup açma
-function openPopup(imgElement) {
-  const popup = document.getElementById("popup");
-  const popupImg = document.getElementById("popup-img");
-  popupImg.src = imgElement.src; 
-  popup.style.display = "flex"; 
-}
-
-// Galeri popup kapatma
-function closePopup() {
-  document.getElementById("popup").style.display = "none";
-}
-
-function playVideo() {
-    const homeSection = document.getElementById("home"); // Home section
-    const iframe = homeSection.querySelector("iframe"); // Home içindeki iframe
-
-    // Sadece home aktif ve iframe varsa çalış
-    if(homeSection.classList.contains("active") && iframe) {
-        iframe.src = "https://www.youtube.com/embed/wL_5Agy-eHc?autoplay=1&rel=0&controls=1";
-    }
-}
-
-</script>
+	<!-- Popup kutusu -->
+	<div id="popup" class="popup" onclick="closePopup()">
+		<span class="close">&times;</span>
+		<img id="popup-img" src="" alt="Büyük Görsel">
+	</div>
 
 
 
 
+	<!-- ETKİNLİKLER -->
+	<section id="etkinlikler" style="display:none;">
+		<h2>ETKİNLİKLERİMİZ</h2>
+		<div class="etkinlikler-gallery">
+			<p>Gaziantep Islahiye Iilcesi Yesemek Acik Hava Müzesi Gezisi </p>
+			<p>Gaziantep Hayvanat Bahcesi Gezisi</p>
+			<p>Gaziantep Harikalar Diyari Gezisi </p>
+			<p>Kilis Sögütlüdere Mangal Etkinligi </p>
+			<p>Veli Bagevi Pikinik Eglencesi </p>
+			<p>Mezuniyet Gecesi </p>
+			<p>TYT Bitirme Pastasi</p>
+			<p>Yil Sonu Pastasi</p>
+			<p>Ögretmenler Günü Etkinligi </p>
+			<p>Kadinlar Günü Etkinligi</p>
+			<p>Kutlu Dogum Haftasi Etkinligi</p>
+		</div>
+	</section>
 
-</script>
+
+	<!-- DENEMELER -->
+	<section id="deneme" style="display:none;">
+		<h2>DENEMELERİMİZ</h2>
+		<div class="deneme-container">
+		<p> 2025-26 Egitim Ögretim yilinda Kurumumuzda uygulanacak TYT AYT Denemeleri listesi asagidaki görsellerde paylasilmistir.</p>
+		<p> ÜcDörtBes ALL STAR denemelerinin yer aldigi ENDENEME KUKÜBÜ 2025-26 yilina ait tüm denemeleri ilimizde sadece Kurumumuzda yapilacaktir. </p>
+		<p>Kurumumuzda Her Hafta Cuma Günü Sabah ve Aksam Seanslari Olmak Üzere TYT Denemesi Yapilmaktadir. Aralik Ayindan Itibaren Ise Bu denemelere AYT Denemeleri De Eklenerek Mayisin Ücüncü Haftasina KAdar Haftada Iki Deneme Uygulanmaktadir. 19 Mayistan Sonra Sinavdan Bir Gün Öncesine Kadar Seri Denemelerimiz(1 Gün TYT 1 Gün AYT) Yapilacaktir </p>
+			<img src="https://r.resimlink.com/vN19GHo.jpg" alt="Denemelerimiz">
+			<img src="https://r.resimlink.com/-uydT_0Q.jpg" alt="Denemelerimiz">
+			<img src="https://r.resimlink.com/PuoVtKR7p1B.jpg" alt="Denemelerimiz">
+		</div>
+	</section>
+
+
+	<section id="dersprogrami" style="display:none;">
+	  <h2>DERS PROGRAMLARI</h2>
+	  <div class="dersprogrami-gallery">
+		<img src="https://r.resimlink.com/63MCU-A0fj.png" alt="Ders Programı 1" onclick="openPopup(this)">
+		<img src="https://r.resimlink.com/Ag1Otl.png" alt="Ders Programı 2" onclick="openPopup(this)">
+	   
+	  </div>
+	</section>
 
 
 
-</body>
-</html>
+	<!-- İLETİŞİM -->
+	<section id="contact" style="display:none;">
+		<h2>İLETİŞİM</h2>
+		<p>📍 Adres: Mehmet Rifat Kazancioglu Mahallesi ORG. Safter Necioglu Bulvari No:32, Kilis, Merkez</p>
+		<p>(Genclik ve Spor Merkezi Karsisi)</p>
+	  <p>📞 Telefon: +90 544 379 85 31 - +90 544 379 85 32</p>
+	  
+	  <p>
+		📸 
+		<a href="https://www.instagram.com/piramit_akademi_kilis?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" 
+		   target="_blank" 
+		   class="instagram-link">
+		   Instagram / @piramit_akademi_kilis
+		</a>
+	  </p>
+	  <div class="kroki">
+		<img src="https://r.resimlink.com/qarE8p7.jpg" alt="Okul krokisi">
+	  </div>
+		
+	</section>
 
+	<footer>
+		&copy; 2025 PIRAMIT AKADEMI. Tüm hakları saklıdır.
+	</footer>
+
+	<!-- JS -->
+	<script>
+	function showSection(id) {
+		let sections = document.querySelectorAll("section");
+
+		sections.forEach(sec => {
+			sec.classList.remove("active"); 
+			sec.style.display = "none";     
+
+			// Eğer home section değilse videoyu sessize al
+			if(sec.id === "home") {
+				const iframe = sec.querySelector("iframe");
+				if(iframe) {
+					// Videoyu sessize al ve autoplay kapat
+					iframe.src = "https://www.youtube.com/embed/lpo9BSnl3K4?autoplay=0&mute=1&loop=1&playlist=lpo9BSnl3K4&controls=0&modestbranding=1&rel=0";
+
+				}
+			}
+		});
+
+		let selected = document.getElementById(id);
+		selected.style.display = "block"; 
+
+		setTimeout(() => {
+			selected.classList.add("active");
+		}, 50);
+	}
+
+
+	// === GALERİ POPUP ===
+	// Galeri popup açma
+	function openPopup(imgElement) {
+	  const popup = document.getElementById("popup");
+	  const popupImg = document.getElementById("popup-img");
+	  popupImg.src = imgElement.src; 
+	  popup.style.display = "flex"; 
+	}
+
+	// Galeri popup kapatma
+	function closePopup() {
+	  document.getElementById("popup").style.display = "none";
+	}
+
+	function playVideo() {
+		const homeSection = document.getElementById("home"); // Home section
+		const iframe = homeSection.querySelector("iframe"); // Home içindeki iframe
+
+		// Sadece home aktif ve iframe varsa çalış
+		if(homeSection.classList.contains("active") && iframe) {
+			iframe.src = "https://www.youtube.com/embed/lpo9BSnl3K4?autoplay=1&rel=0&controls=1";
+
+		}
+	}
+
+	</script>
+
+
+
+
+
+	</script>
+
+
+
+	</body>
+	</html>
