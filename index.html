@@ -166,16 +166,22 @@ section.active {
 
 
 
-    nav {
-        background: #FFA442;
-        display: flex;
-        justify-content: center;
-    }
+   nav {
+    background: #FFA442;
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;    /* menü alt satıra geçmesin */
+    overflow-x: auto;     /* dar ekranda yatay kaydırma olsun */
+}
+
     nav a {
-        color: white;
-        padding: 1rem;
-        text-decoration: none;
-    }
+    color: white;
+    padding: 1rem;
+    text-decoration: none;
+    white-space: nowrap;  /* kelimeler alt satıra geçmesin */
+    flex-shrink: 0;       /* daralsa da küçülmesin */
+}
+
     nav a:hover {
         background: #FF6842;
     }
@@ -960,5 +966,3 @@ function playVideo() {
 
 </body>
 </html>
-
-
